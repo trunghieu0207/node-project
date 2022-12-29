@@ -5,8 +5,9 @@ import * as dotenv from 'dotenv'
 import { assets } from "@shared/assets";
 import { Index } from '@routes/route';
 
-const app = express();
 dotenv.config()
+
+const app = express();
 const port = process.env.PORT
 
 app.set('view engine', 'ejs')
@@ -17,9 +18,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use("/", Index);
 
-app.locals.xyz = (dirname: string) => {
-    return assets(dirname);
-}
+app.locals.assets = assets;
 
 app.listen(port, () => {
     console.log(`listening on port ${port}`);
