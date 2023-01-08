@@ -1,12 +1,14 @@
-import express from "express";
+import express, {NextFunction} from "express";
 
 export class IndexController {
     private request: express.Request;
     private response: express.Response;
+    private next: NextFunction;
 
-    constructor(request: express.Request, response: express.Response) {
+    constructor(request: express.Request, response: express.Response, next: NextFunction) {
         this.request = request;
         this.response = response;
+        this.next = next;
     }
 
     public render() {
