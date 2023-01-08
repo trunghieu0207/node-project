@@ -1,3 +1,3 @@
-export const assets = (dirname: string) => {
-    return dirname
+export const assets = (filePath: string) => {
+    return `public/${filePath}`
 }
