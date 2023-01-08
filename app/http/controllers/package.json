@@ -1,5 +1,5 @@
 {
-  "name": "@routes/route",
+  "name": "@http/controllers",
   "version": "0.0.0",
   "private": true
 }

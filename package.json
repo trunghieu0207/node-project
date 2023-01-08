@@ -38,7 +38,7 @@
   "workspaces": [
     "app/config/*",
     "app/controllers/*",
-    "app/routes/*",
+    "app/http/*",
     "app/shared/*",
     "src/js/*"
   ]

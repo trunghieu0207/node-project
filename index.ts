@@ -3,7 +3,7 @@ import * as bodyParser from "body-parser";
 import * as path from "path";
 import * as dotenv from 'dotenv'
 import { assets } from "@shared/assets";
-import { Index } from '@routes/route';
+import { Index } from '@http/routes';
 
 dotenv.config()
 
