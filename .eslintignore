@@ -1,0 +1,6 @@
+app/views/*
+public/*
+node_modules
+webpack
+.eslintrc.js
+entry.js

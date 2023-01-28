@@ -1,11 +1,15 @@
-import {Request, Response, NextFunction} from "express";
+import { Request, Response, NextFunction } from 'express';
 
-export const isUserLogin = (req: Request, res: Response, next: NextFunction) => {
+export const isUserLogin = (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
     const abc = 2;
     // @ts-ignore
     if (abc === 1) {
-        next()
+        next();
     } else {
         res.send(401);
     }
-}
+};

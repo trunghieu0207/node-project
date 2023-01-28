@@ -1,1 +1,1 @@
-export {isUserLogin} from './isUserLogin'
+export { isUserLogin } from './isUserLogin';

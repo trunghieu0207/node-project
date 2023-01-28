@@ -1,8 +1,8 @@
 require('../entry');
-const nodeExternals = require("webpack-node-externals");
-const path = require("path");
+const nodeExternals = require('webpack-node-externals');
+const path = require('path');
 
-const SRC_ROOT = path.join(__dirname, "../src");
+const SRC_ROOT = path.join(__dirname, '../src');
 
 module.exports = {
     context: SRC_ROOT,
@@ -10,7 +10,7 @@ module.exports = {
     externals: [nodeExternals()],
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, '../public/dist'),
+        path: path.resolve(__dirname, '../public/dist')
     },
     module: {
         rules: [
@@ -25,7 +25,7 @@ module.exports = {
                             '@babel/preset-typescript',
                             ['@babel/preset-react', { runtime: 'automatic' }]
                         ],
-                        plugins: ['@babel/plugin-transform-runtime'],
+                        plugins: ['@babel/plugin-transform-runtime']
                     }
                 }
             }
