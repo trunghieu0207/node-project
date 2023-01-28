@@ -1,1 +1,1 @@
-export { Index } from './Index.routes'
+export { Index } from './Index.routes';

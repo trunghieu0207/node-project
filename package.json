@@ -5,6 +5,8 @@
   "main": "index.ts",
   "scripts": {
     "dev": "webpack --config ./webpack/dev.config.js --watch",
+    "lint": "eslint . --ext .tsx,.ts",
+    "lint:fix": "eslint . --ext .tsx,.ts,.js --fix",
     "build": "webpack --config ./webpack/prod.config.js",
     "start": "nodemon -L"
   },
@@ -24,8 +26,14 @@
     "@babel/preset-typescript": "^7.18.6",
     "@types/express": "^4.17.15",
     "@types/node": "^18.11.17",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
     "concurrently": "^7.6.0",
+    "eslint": "^8.31.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "express-session": "^1.17.3",
     "nodemon": "^2.0.20",
+    "prettier": "^2.8.3",
     "tinymce": "^5.10.7",
     "ts-loader": "^9.4.2",
     "ts-node": "^10.9.1",

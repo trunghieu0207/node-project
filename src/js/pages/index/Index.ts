@@ -1,5 +1,5 @@
 export default class Index {
     constructor() {
-        console.log(1111)
+        console.log(1111);
     }
 }

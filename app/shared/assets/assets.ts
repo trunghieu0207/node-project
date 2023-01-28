@@ -1,3 +1,3 @@
 export const assets = (filePath: string) => {
-    return `public/${filePath}`
-}
+    return `static/${filePath}`;
+};
