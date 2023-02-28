@@ -1,4 +1,5 @@
 import express, { NextFunction } from 'express';
+import { getUser } from '@services/user';
 
 export class IndexController {
     private request: express.Request;
@@ -15,7 +16,8 @@ export class IndexController {
         this.next = next;
     }
 
-    public render() {
+    public async render() {
+        await getUser();
         this.response.render('pages/index');
     }
 }
