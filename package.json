@@ -48,6 +48,7 @@
   },
   "workspaces": [
     "app/config/*",
+    "app/errors/*",
     "app/controllers/*",
     "app/http/*",
     "app/services/*",

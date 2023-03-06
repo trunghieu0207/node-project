@@ -14,7 +14,7 @@ export class DatabaseConnection {
             password: process.env.DB_PASSWORD,
             database: process.env.DB_NAME
         });
-        connection.connect();
+        await connection.connect();
 
         return connection;
     }
