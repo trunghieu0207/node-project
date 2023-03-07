@@ -2,6 +2,7 @@ import { DatabaseConnection } from '@config/database';
 import { getCustomer, UserResponse } from './getCustomer';
 import { SqlQueryInvalid } from '@errors/sql';
 import { CannotFindCustomer } from '@errors/customer';
+
 interface UpdateCustomerParams {
     [key: string]: string | number;
     id: number;
@@ -26,7 +27,7 @@ export const updateCustomer = async (
         if (customer === undefined) {
             throw new CannotFindCustomer();
         }
-        const data = mergeData(input, customer[0]);
+        const data = mergeData(input, customer);
         const query =
             'UPDATE `CustomerT` SET customerName = ?, sex = ?, email = ?, departmentID = ? WHERE customerID = ?';
         await connection.execute(query, [
@@ -36,10 +37,9 @@ export const updateCustomer = async (
             data.departmentID,
             data.id
         ]);
-        const [result] = await getCustomer(data.id);
-        return result;
+        return await getCustomer(data.id);
     } catch (error: any) {
-        throw new SqlQueryInvalid(error.message, error.code);
+        throw new SqlQueryInvalid({ name: error.message, code: error.code });
     }
 };
 

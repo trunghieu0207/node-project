@@ -1,0 +1,1 @@
+export { getAllSubject } from './getAllSubject';

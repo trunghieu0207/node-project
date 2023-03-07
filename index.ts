@@ -3,7 +3,7 @@ import * as bodyParser from 'body-parser';
 import * as path from 'path';
 import * as dotenv from 'dotenv';
 import { assets } from '@shared/assets';
-import { User } from '@http/routes';
+import { Index, User } from '@http/routes';
 
 dotenv.config();
 
@@ -17,6 +17,7 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', User);
+app.use('/index', Index);
 
 app.locals.assets = assets;
 

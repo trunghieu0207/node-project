@@ -9,7 +9,7 @@ module.exports = {
     entry: entry,
     externals: [nodeExternals()],
     output: {
-        filename: '[name].js',
+        filename: '[name].css',
         path: path.resolve(__dirname, '../public/dist')
     },
     module: {

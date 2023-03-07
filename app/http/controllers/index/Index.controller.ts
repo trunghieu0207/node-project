@@ -1,4 +1,5 @@
 import express, { NextFunction } from 'express';
+import { getAllSubject } from '@services/index';
 
 export class IndexController {
     private request: express.Request;
@@ -15,7 +16,8 @@ export class IndexController {
         this.next = next;
     }
 
-    public async render() {
-        this.response.render('pages/index');
+    public async render(): Promise<void> {
+        const subjects = await getAllSubject();
+        this.response.render('pages/index', { subjects });
     }
 }

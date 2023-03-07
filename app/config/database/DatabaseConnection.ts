@@ -22,4 +22,10 @@ export class DatabaseConnection {
     public getConnection(): Promise<Connection> {
         return this.connection;
     }
+
+    public async closeConnection() {
+        return await this.connection.then(connection => {
+            connection.end();
+        });
+    }
 }
