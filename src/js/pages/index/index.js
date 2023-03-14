@@ -1,1 +1,3 @@
-console.log(123);
+import Index from './Index';
+
+const index = new Index();
