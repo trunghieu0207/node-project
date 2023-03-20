@@ -17,16 +17,25 @@ export class AddCustomerController {
     }
 
     public async addCustomer() {
-        const body = this.request.body;
-        const data = {
-            customerName: body.name ?? '',
-            sex: body.sex ?? '',
-            email: body.email ?? '',
-            departmentID: body.departmentID ?? ''
-        };
+        // const body = this.request.body;
+        // const data = {
+        //     customerName: body.name ?? '',
+        //     sex: body.sex ?? '',
+        //     email: body.email ?? '',
+        //     departmentID: body.departmentID ?? ''
+        // };
 
         try {
-            const result = await addCustomer(data);
+            let result: any;
+            for (let count = 925; count <= 1000; count++) {
+                const data2 = {
+                    customerName: `Dang Trung Hieu ${count}`,
+                    sex: 'Male',
+                    email: `dangtrunghieu0207-${count}@gmail.com`,
+                    departmentID: 1
+                };
+                result = await addCustomer(data2);
+            }
             const id = (result[0] as any).insertId;
             const [customer] = await getCustomer(id);
             this.response.status(201);

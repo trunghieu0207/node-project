@@ -8,19 +8,21 @@ export interface UserResponse {
     departmentID: number;
 }
 
-export const getCustomer = async (id: number): Promise<UserResponse[]> => {
+export const getCustomer = async (id?: number): Promise<UserResponse[]> => {
     const databaseConnection = new DatabaseConnection();
     const connection = await databaseConnection.getConnection();
 
-    if (id === null) {
-        const [rows] = await connection.execute('SELECT * FROM CustomerTB');
-        return rows as UserResponse[];
-    }
-
-    const [rows] = await connection.execute(
-        'SELECT * FROM CustomerTB WHERE customerID = ?',
-        [id]
-    );
-
+    const [rows] = await connection.execute('SELECT * FROM CustomerTB');
     return rows as UserResponse[];
+    // if (id === null) {
+    //     const [rows] = await connection.execute('SELECT * FROM CustomerTB');
+    //     return rows as UserResponse[];
+    // }
+    //
+    // const [rows] = await connection.execute(
+    //     'SELECT * FROM CustomerTB WHERE customerID = ?',
+    //     [id]
+    // );
+    //
+    // return rows as UserResponse[];
 };

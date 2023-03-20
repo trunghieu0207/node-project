@@ -1,7 +1,7 @@
 import express, { NextFunction } from 'express';
-import { getCustomer } from '@services/user';
+import { CustomerModel } from '../../../models/Customer.Model';
 
-export class GetCustomerController {
+export class GetAllCustomerController {
     private request: express.Request;
     private response: express.Response;
     private next: NextFunction;
@@ -17,9 +17,16 @@ export class GetCustomerController {
     }
 
     public async getUser() {
-        const id = this.request.params.id;
         try {
-            const result = await getCustomer(id as unknown as number);
+            const result = await CustomerModel.findAll({
+                attributes: [
+                    'customerID',
+                    'customerName',
+                    'sex',
+                    'email',
+                    'departmentID'
+                ]
+            });
             if (result.length === 0) {
                 this.response.status(404);
                 this.response.json({
@@ -30,7 +37,7 @@ export class GetCustomerController {
                 return;
             }
             this.response.status(200);
-            this.response.json(result[0]);
+            this.response.json(result);
             this.response.end();
             this.response.end();
         } catch (e) {

@@ -19,7 +19,7 @@ export class GetCustomerController {
     public async getUser() {
         const id = this.request.params.id;
         try {
-            const result = await getCustomer(id as unknown as number);
+            const result = await getCustomer();
             if (result.length === 0) {
                 this.response.status(404);
                 this.response.json({
@@ -30,7 +30,7 @@ export class GetCustomerController {
                 return;
             }
             this.response.status(200);
-            this.response.json(result[0]);
+            this.response.json(result);
             this.response.end();
             this.response.end();
         } catch (e) {
