@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import express from 'express';
 import * as bodyParser from 'body-parser';
 import * as path from 'path';
