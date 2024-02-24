@@ -1,115 +1,244 @@
 <%- include('../../../partials/head'); %>
+<link rel="stylesheet" href="/static/assets/vendor/libs/flatpickr/flatpickr.css" />
+<link rel="stylesheet" href="/static/assets/vendor/libs/select2/select2.css" />
 
-<div class="container-xxl">
-    <div class="authentication-wrapper authentication-basic container-p-y">
-        <div class="authentication-inner py-4">
-            <!-- Login -->
-            <div class="card">
-                <div class="card-body">
-                    <!-- Logo -->
-                    <div class="app-brand justify-content-center mb-4 mt-2">
-                        <a href="index.html" class="app-brand-link gap-2">
-                  <span class="app-brand-logo demo">
-                    <svg width="32" height="22" viewBox="0 0 32 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M0.00172773 0V6.85398C0.00172773 6.85398 -0.133178 9.01207 1.98092 10.8388L13.6912 21.9964L19.7809 21.9181L18.8042 9.88248L16.4951 7.17289L9.23799 0H0.00172773Z"
-                              fill="#7367F0" />
-                      <path
-                              opacity="0.06"
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M7.69824 16.4364L12.5199 3.23696L16.5541 7.25596L7.69824 16.4364Z"
-                              fill="#161616" />
-                      <path
-                              opacity="0.06"
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M8.07751 15.9175L13.9419 4.63989L16.5849 7.28475L8.07751 15.9175Z"
-                              fill="#161616" />
-                      <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M7.77295 16.3566L23.6563 0H32V6.88383C32 6.88383 31.8262 9.17836 30.6591 10.4057L19.7824 22H13.6938L7.77295 16.3566Z"
-                              fill="#7367F0" />
-                    </svg>
-                  </span>
-                            <span class="app-brand-text demo text-body fw-bold ms-1">Vuexy</span>
-                        </a>
-                    </div>
-                    <!-- /Logo -->
-                    <h4 class="mb-1 pt-2">Welcome to Vuexy! 👋</h4>
-                    <p class="mb-4">Please sign-in to your account and start the adventure</p>
+</head>
 
-                    <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email or Username</label>
-                            <input
-                                    type="text"
-                                    class="form-control"
-                                    id="email"
-                                    name="email-username"
-                                    placeholder="Enter your email or username"
-                                    autofocus />
-                        </div>
-                        <div class="mb-3 form-password-toggle">
-                            <div class="d-flex justify-content-between">
-                                <label class="form-label" for="password">Password</label>
-                                <a href="auth-forgot-password-basic.html">
-                                    <small>Forgot Password?</small>
-                                </a>
+<body>
+<!-- Content -->
+<div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+        <!-- Menu -->
+
+        <%- include('../../../components/menu'); %>
+        <!-- / Menu -->
+
+        <!-- Layout container -->
+        <div class="layout-page">
+            <!-- Navbar -->
+
+            <%- include('../../../components/nav'); %>
+
+            <!-- / Navbar -->
+
+            <!-- Content wrapper -->
+            <div class="content-wrapper">
+                <!-- Content -->
+
+                <div class="container-xxl flex-grow-1 container-p-y">
+                    <h4 class="py-3 mb-4"><span class="text-muted fw-light">Người dùng /</span> Tạo người dùng</h4>
+                    <div class="row">
+                        <!-- FormValidation -->
+                        <div class="col-12">
+                            <div class="card">
+                                <h5 class="card-header">Create account</h5>
+                                <div class="card-body">
+                                    <form id="formValidationExamples" class="row g-3" method="post" action="/admin/user/action-create">
+                                        <!-- Account Details -->
+
+                                        <div class="col-12">
+                                            <h6>1. Account information</h6>
+                                            <hr class="mt-0" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="formValidationUsername">Username <span style="color: red">*</span></label>
+                                            <input
+                                                    class="form-control"
+                                                    type="email"
+                                                    id="formValidationUsername"
+                                                    name="username"
+                                                    placeholder="nguyenvana" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="formValidationEmail">Email <span style="color: red">*</span></label>
+                                            <input
+                                                    class="form-control"
+                                                    type="email"
+                                                    id="formValidationEmail"
+                                                    name="email"
+                                                    placeholder="nguyenvana@mail.com" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-password-toggle">
+                                                <label class="form-label" for="formValidationPass">Password <span style="color: red">*</span></label>
+                                                <div class="input-group input-group-merge">
+                                                    <input
+                                                            class="form-control"
+                                                            type="password"
+                                                            id="formValidationPass"
+                                                            name="password"
+                                                            placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                                            aria-describedby="multicol-password2" />
+                                                    <span class="input-group-text cursor-pointer" id="multicol-password2"
+                                                    ><i class="ti ti-eye-off"></i
+                                                        ></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-password-toggle">
+                                                <label class="form-label" for="formValidationConfirmPass">Confirm password <span style="color: red">*</span></label>
+                                                <div class="input-group input-group-merge">
+                                                    <input
+                                                            class="form-control"
+                                                            type="password"
+                                                            id="formValidationConfirmPass"
+                                                            name="confirmPassword"
+                                                            placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                                            aria-describedby="multicol-confirm-password2" />
+                                                    <span class="input-group-text cursor-pointer" id="multicol-confirm-password2"
+                                                    ><i class="ti ti-eye-off"></i
+                                                        ></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="formValidationRole">Role</label>
+                                            <select name="formValidationRole" class="select2 form-select form-select-lg" data-allow-clear="true">
+                                                <option value="5">User</option>
+                                                <option value="1">Administrator</option>
+                                            </select>
+                                        </div>
+
+                                        <!-- Personal Info -->
+
+                                        <div class="col-12">
+                                            <h6 class="mt-2">2. Personal information</h6>
+                                            <hr class="mt-0" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="formValidationName">Lastname <span style="color: red">*</span></label>
+                                            <input
+                                                    type="text"
+                                                    id="formValidationName"
+                                                    class="form-control"
+                                                    placeholder="Nguyen"
+                                                    name="lastName" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="formValidationName">Firstname <span style="color: red">*</span></label>
+                                            <input
+                                                    type="text"
+                                                    id="formValidationName"
+                                                    class="form-control"
+                                                    placeholder="Van A"
+                                                    name="firstName" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="formValidationPhone">Phone <span style="color: red">*</span></label>
+                                            <input
+                                                    class="form-control typeahead"
+                                                    type="text"
+                                                    id="formValidationPhone"
+                                                    name="formValidationPhone"
+                                                    autocomplete="off" />
+                                        </div>
+<!--                                        <div class="col-md-6">-->
+<!--                                            <label class="form-label" for="formValidationAddress">Tỉnh, Thành phố <span style="color: red">*</span></label>-->
+<!--                                            <select id="select2Basic" name="city" class="select2 form-select form-select-lg js-province" data-allow-clear="true"></select>-->
+<!--                                        </div>-->
+<!--                                        <div class="col-md-6">-->
+<!--                                            <label class="form-label" for="formValidationAddress">Quận, Huyện <span style="color: red">*</span></label>-->
+<!--                                            <select id="selectDistrict" name="district" class="selectDistrict form-select form-select-lg js-district" data-allow-clear="true"></select>-->
+<!--                                        </div>-->
+<!--                                        <div class="col-md-6">-->
+<!--                                            <label class="form-label" for="formValidationAddress">Phường, Xã <span style="color: red">*</span></label>-->
+<!--                                            <select id="selectWard" name="ward" class="selectWard form-select form-select-lg js-ward" data-allow-clear="true"></select>-->
+<!--                                        </div>-->
+                                        <div class="col-md-12">
+                                            <label class="form-label" for="formValidationAddress">Address <span style="color: red">*</span></label>
+                                            <input
+                                                    class="form-control typeahead"
+                                                    type="text"
+                                                    id="formValidationAddress"
+                                                    name="formValidationAddress"
+                                                    autocomplete="off"
+                                                    placeholder="Số nhà, ấp, thôn xóm"/>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Gender</label>
+                                            <div class="form-check custom mb-2">
+                                                <input
+                                                        type="radio"
+                                                        id="formValidationGender"
+                                                        name="formValidationGender"
+                                                        value="male"
+                                                        class="form-check-input"
+                                                        checked />
+                                                <label class="form-check-label" for="formValidationGender">Male</label>
+                                            </div>
+
+                                            <div class="form-check custom">
+                                                <input
+                                                        type="radio"
+                                                        id="formValidationGender2"
+                                                        name="formValidationGender"
+                                                        value="female"
+                                                        class="form-check-input" />
+                                                <label class="form-check-label" for="formValidationGender2">Female</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="formValidationDob">Date of birth <span style="color: red">*</span></label>
+                                            <input
+                                                    type="text"
+                                                    class="form-control flatpickr-validation"
+                                                    name="formValidationDob"
+                                                    id="formValidationDob"
+                                                    placeholder="dd/mm/yyyy"
+                                                    required />
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="formValidationBio">Note</label>
+                                            <textarea
+                                                    class="form-control"
+                                                    id="formValidationBio"
+                                                    name="formValidationBio"
+                                                    rows="3"></textarea>
+                                        </div>
+
+                                        <!-- Choose Your Plan -->
+
+                                        <!--                                        <div class="col-12">-->
+                                        <!--                                            <label class="switch switch-primary">-->
+                                        <!--                                                <input type="checkbox" class="switch-input" name="formValidationSwitch" />-->
+                                        <!--                                                <span class="switch-toggle-slider">-->
+                                        <!--                                                  <span class="switch-on"></span>-->
+                                        <!--                                                  <span class="switch-off"></span>-->
+                                        <!--                                                </span>-->
+                                        <!--                                                <span class="switch-label">Gửi mail thông tin đăng nhập</span>-->
+                                        <!--                                            </label>-->
+                                        <!--                                        </div>-->
+                                        <div class="col-12">
+                                            <button type="submit" name="submitButton" class="btn btn-primary">Create</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                            <div class="input-group input-group-merge">
-                                <input
-                                        type="password"
-                                        id="password"
-                                        class="form-control"
-                                        name="password"
-                                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                        aria-describedby="password" />
-                                <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
-                            </div>
                         </div>
-                        <div class="mb-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="remember-me" />
-                                <label class="form-check-label" for="remember-me"> Remember Me </label>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
-                        </div>
-                    </form>
-
-                    <p class="text-center">
-                        <span>New on our platform?</span>
-                        <a href="auth-register-basic.html">
-                            <span>Create an account</span>
-                        </a>
-                    </p>
-
-                    <div class="divider my-4">
-                        <div class="divider-text">or</div>
-                    </div>
-
-                    <div class="d-flex justify-content-center">
-                        <a href="javascript:;" class="btn btn-icon btn-label-facebook me-3">
-                            <i class="tf-icons fa-brands fa-facebook-f fs-5"></i>
-                        </a>
-
-                        <a href="javascript:;" class="btn btn-icon btn-label-google-plus me-3">
-                            <i class="tf-icons fa-brands fa-google fs-5"></i>
-                        </a>
-
-                        <a href="javascript:;" class="btn btn-icon btn-label-twitter">
-                            <i class="tf-icons fa-brands fa-twitter fs-5"></i>
-                        </a>
+                        <!-- /FormValidation -->
                     </div>
                 </div>
+                <!-- / Content -->
+
+                <!-- Footer -->
+                <%- include('../../../partials/footer'); %>
+                <!-- / Footer -->
+
+                <div class="content-backdrop fade"></div>
             </div>
-            <!-- /Register -->
+            <!-- Content wrapper -->
         </div>
+        <!-- / Layout page -->
     </div>
 </div>
 <%- include('../../../partials/script'); %>
+<script src="/static/assets/vendor/libs/cleavejs/cleave.js"></script>
+<script src="/static/assets/vendor/libs/cleavejs/cleave-phone.js"></script>
+<script src="/static/assets/vendor/libs/select2/select2.js"></script>
+<script src="/static/assets/js/form-layouts.js"></script>
+<script src="/static/assets/js/admin/user/createUser.js"></script>
+<script src="/static/assets/js/admin/user/createUserValidation.js"></script>
+</body>
+</html>
