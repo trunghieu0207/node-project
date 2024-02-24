@@ -4,7 +4,7 @@
     "NODE_ENV": "development"
   },
   "ext": "js,json,hbs,html,ts",
-  "watch": ["index.ts", "app/routes", "app/controllers"],
+  "watch": ["index.ts", "app/routes", "app/http", "app/http/shared"],
   "ignore": ["tests/**/*.ts"],
   "exec": "ts-node ./index.ts"
 }

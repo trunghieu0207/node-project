@@ -1,5 +1,9 @@
 import express, { NextFunction } from 'express';
-import { IndexController } from '@http/controllers';
+import {
+    AdminCreateUserController,
+    IndexController,
+    LoginController
+} from '@http/controllers';
 import { isUserLogin } from '@http/middlewares/';
 
 export const Index = express.Router();
@@ -8,5 +12,12 @@ Index.get(
     '/',
     (req: express.Request, res: express.Response, next: NextFunction) => {
         new IndexController(req, res, next).render();
+    }
+);
+
+Index.get(
+    '/login',
+    (req: express.Request, res: express.Response, next: NextFunction) => {
+        new LoginController(req, res, next).render();
     }
 );

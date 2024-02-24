@@ -1,11 +1,9 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import express from 'express';
 import * as bodyParser from 'body-parser';
 import * as path from 'path';
 import * as dotenv from 'dotenv';
 import { assets } from '@shared/assets';
-import { Index } from '@http/routes';
+import { Admin, Index } from '@http/routes';
 
 dotenv.config();
 
@@ -19,6 +17,7 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', Index);
+app.use('/admin', Admin);
 
 app.locals.assets = assets;
 

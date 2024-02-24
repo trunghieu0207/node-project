@@ -1,0 +1,36 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "code": "HT-1",
+      "full_name": "Nguyễn Văn A",
+      "email": "nguyenvana@gamil.com",
+      "register_at": "09/23/2021",
+      "status": 0
+    },
+    {
+      "id": 2,
+      "code": "HT-2",
+      "full_name": "Nguyễn Văn B",
+      "email": "nguyenvanb@gamil.com",
+      "register_at": "09/23/2021",
+      "status": 0
+    },
+    {
+      "id": 3,
+      "code": "HT-3",
+      "full_name": "Nguyễn Văn D",
+      "email": "nguyenvand@gamil.com",
+      "register_at": "09/23/2021",
+      "status": 1
+    },
+    {
+      "id": 4,
+      "code": "HT-4",
+      "full_name": "Nguyễn Văn E",
+      "email": "nguyenvane@gamil.com",
+      "register_at": "09/23/2021",
+      "status": 0
+    }
+  ]
+}
