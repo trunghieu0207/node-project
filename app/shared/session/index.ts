@@ -1,0 +1,1 @@
+export { expressFlashMessage } from './flash';

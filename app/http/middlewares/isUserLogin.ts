@@ -5,11 +5,11 @@ export const isUserLogin = (
     res: Response,
     next: NextFunction
 ) => {
-    const abc = 2;
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    if (abc === 1) {
+    if (req.session.user) {
         next();
     } else {
-        res.send(401);
+        return res.redirect('/login');
     }
 };

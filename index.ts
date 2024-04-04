@@ -3,9 +3,10 @@ import * as bodyParser from 'body-parser';
 import * as path from 'path';
 import * as dotenv from 'dotenv';
 import session from 'express-session';
-import flash from 'express-flash-message';
 import { assets } from '@shared/assets';
 import { Admin, Index } from '@http/routes';
+import { expressFlashMessage } from './app/shared/session';
+import { v4 as uuid_v4 } from 'uuid';
 
 dotenv.config();
 
@@ -17,6 +18,9 @@ app.set('views', path.join(__dirname, 'app/views'));
 
 app.use(
     session({
+        genid: function () {
+            return uuid_v4();
+        },
         secret: 'secret-key',
         resave: false,
         saveUninitialized: true,
@@ -28,7 +32,7 @@ app.use(
 );
 
 app.use(
-    flash({
+    expressFlashMessage({
         sessionKeyName: 'express-flash-message'
     })
 );

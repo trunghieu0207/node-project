@@ -1,0 +1,147 @@
+<%- include('../../../partials/head'); %>
+<link rel="stylesheet" href="/static/assets/vendor/libs/flatpickr/flatpickr.css" />
+<link rel="stylesheet" href="/static/assets/vendor/libs/select2/select2.css" />
+
+</head>
+<body>
+<!-- Content -->
+
+<div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+        <!-- Menu -->
+
+        <%- include('../../../components/menu'); %>
+        <!-- / Menu -->
+
+        <!-- Layout container -->
+        <div class="layout-page">
+            <!-- Navbar -->
+
+            <%- include('../../../components/nav'); %>
+
+            <!-- / Navbar -->
+
+            <!-- Content wrapper -->
+            <div class="content-wrapper">
+                <!-- Content -->
+
+                <div class="container-xxl flex-grow-1 container-p-y">
+                    <div class="row g-4 mb-4">
+                        <% if (haveFlash('createUserSuccess')[0]) {%>
+                            <div class="alert alert-success"> <%=  getFlashMessages('createUserSuccess')[0] %></div>
+                        <% }%>
+                        <% if (haveFlash('deleteUserSuccess')[0]) {%>
+                            <div class="alert alert-success"> <%=  getFlashMessages('deleteUserSuccess')[0] %></div>
+                        <% }%>
+                        <div class="col-sm-6 col-xl-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-start justify-content-between">
+                                        <div class="content-left">
+                                            <span>Tổng số người dùng</span>
+                                            <div class="d-flex align-items-center my-2">
+                                                <h3 class="mb-0 me-2">111</h3>
+                                            </div>
+                                        </div>
+                                        <div class="avatar">
+                          <span class="avatar-initial rounded bg-label-primary">
+                            <i class="ti ti-user ti-sm"></i>
+                          </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--                        <div class="col-sm-6 col-xl-3">-->
+                        <!--                            <div class="card">-->
+                        <!--                                <div class="card-body">-->
+                        <!--                                    <div class="d-flex align-items-start justify-content-between">-->
+                        <!--                                        <div class="content-left">-->
+                        <!--                                            <span>Số người dùng đã xác thực</span>-->
+                        <!--                                            <div class="d-flex align-items-center my-2">-->
+                        <!--                                                <h3 class="mb-0 me-2">19,860</h3>-->
+                        <!--                                            </div>-->
+                        <!--                                        </div>-->
+                        <!--                                        <div class="avatar">-->
+                        <!--                          <span class="avatar-initial rounded bg-label-success">-->
+                        <!--                            <i class="ti ti-user-check ti-sm"></i>-->
+                        <!--                          </span>-->
+                        <!--                                        </div>-->
+                        <!--                                    </div>-->
+                        <!--                                </div>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
+                        <!--                        <div class="col-sm-6 col-xl-3">-->
+                        <!--                            <div class="card">-->
+                        <!--                                <div class="card-body">-->
+                        <!--                                    <div class="d-flex align-items-start justify-content-between">-->
+                        <!--                                        <div class="content-left">-->
+                        <!--                                            <span>Số người dùng chưa xác thực</span>-->
+                        <!--                                            <div class="d-flex align-items-center my-2">-->
+                        <!--                                                <h3 class="mb-0 me-2">237</h3>-->
+                        <!--                                            </div>-->
+                        <!--                                        </div>-->
+                        <!--                                        <div class="avatar">-->
+                        <!--                          <span class="avatar-initial rounded bg-label-warning">-->
+                        <!--                            <i class="ti ti-user-exclamation ti-sm"></i>-->
+                        <!--                          </span>-->
+                        <!--                                        </div>-->
+                        <!--                                    </div>-->
+                        <!--                                </div>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
+                    </div>
+                    <!-- Users List Table -->
+                    <div class="card">
+                        <div class="card-datatable table-responsive pt-0">
+                            <span>
+                                <a href="/admin/user/create">
+                                    <button class="btn btn-primary" style="margin: 15px">Tạo người dùng</button>
+                                </a>
+                            </span>
+
+                            <table class="datatables-basic table">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>id</th>
+                                    <th>Họ tên</th>
+                                    <th>Email</th>
+                                    <th>Ngày tham gia</th>
+                                    <th>Trạng thái</th>
+                                    <th>Hành động</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <!-- Offcanvas to add new user -->
+                    </div>
+                </div>
+                <!-- / Content -->
+
+                <!-- Footer -->
+                <%- include('../../../partials/footer'); %>
+                <!-- / Footer -->
+
+                <div class="content-backdrop fade"></div>
+            </div>
+            <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+    </div>
+
+    <!-- Overlay -->
+    <div class="layout-overlay layout-menu-toggle"></div>
+
+    <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+    <div class="drag-target"></div>
+</div>
+
+<!-- / Content -->
+
+<!-- Core JS -->
+<!-- build:js assets/vendor/js/core.js -->
+<%- include('../../../partials/script'); %>
+<script src="/static/assets/js/admin/user/user-list-datatables.js"></script>
+</body>
+</html>
