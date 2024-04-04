@@ -14,11 +14,11 @@ export class ActionCreateController extends BaseController {
                 userEntity: userEntity,
                 userProfileEntity: userProfileEntity
             });
-            this.response.flash('success', 'this is info flash message');
-            return this.response.redirect('/admin/user/test');
+            this.response.flash('success', 'Create user success');
+            return this.response.redirect('/admin/user/list');
         } catch (e) {
-            this.response.flash('success', 'this is info flash message');
-            return this.response.redirect('/admin/user/test');
+            this.response.flash('error', 'Create user fail');
+            return this.response.redirect('/admin/user/list');
         }
     }
 

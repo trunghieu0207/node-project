@@ -6,6 +6,7 @@ import {
     AdminAjaxGetUserListController,
     AdminCreateUserController,
     AdminDetailUserController,
+    AdminEditUserController,
     AdminListUserController,
     TestController
 } from '@http/controllers';
@@ -29,7 +30,7 @@ Admin.get(
 
 Admin.get(
     '/user/list',
-    isUserLogin,
+    // isUserLogin,
     (req: express.Request, res: express.Response, next: NextFunction) => {
         new AdminListUserController(req, res, next).render();
     }
@@ -39,6 +40,14 @@ Admin.get(
     '/ajax/fetch-all-user',
     async (req: express.Request, res: express.Response, next: NextFunction) => {
         await new AdminAjaxGetUserListController(req, res, next).fetch();
+    }
+);
+
+Admin.get(
+    '/user/edit/:userId',
+    // isUserLogin,
+    (req: express.Request, res: express.Response, next: NextFunction) => {
+        new AdminEditUserController(req, res, next).render();
     }
 );
 

@@ -9,7 +9,7 @@ export class LoginController extends BaseController {
 
     public async auth() {
         const body = this.request.body;
-        const user = await auth(body.username, body.password);
+        const user = await auth(body.username);
         if (!user) {
             return this.response.redirect('/login');
         }

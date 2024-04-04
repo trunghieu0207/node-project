@@ -27,11 +27,11 @@
 
                 <div class="container-xxl flex-grow-1 container-p-y">
                     <div class="row g-4 mb-4">
-                        <% if (haveFlash('createUserSuccess')[0]) {%>
-                            <div class="alert alert-success"> <%=  getFlashMessages('createUserSuccess')[0] %></div>
+                        <% if (haveFlash('success')[0]) {%>
+                            <div class="alert alert-success"> <%=  getFlashMessages('success')[0] %></div>
                         <% }%>
-                        <% if (haveFlash('deleteUserSuccess')[0]) {%>
-                            <div class="alert alert-success"> <%=  getFlashMessages('deleteUserSuccess')[0] %></div>
+                        <% if (haveFlash('error')[0]) {%>
+                            <div class="alert alert-danger"> <%=  getFlashMessages('error')[0] %></div>
                         <% }%>
                         <div class="col-sm-6 col-xl-3">
                             <div class="card">

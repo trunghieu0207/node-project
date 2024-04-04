@@ -88,7 +88,7 @@ export const getUserById = async (id: number) => {
 
     try {
         const sql =
-            'SELECT username, password, u.id FROM tb_users AS u INNER JOIN tb_user_profiles AS up ON u.id = up.user_id WHERE u.id = ? LIMIT 0,1';
+            'SELECT u.id, u.username, up.email, up.firstname, up.lastname, up.phone, up.address FROM tb_users AS u INNER JOIN tb_user_profiles AS up ON u.id = up.user_id WHERE u.id = ? LIMIT 0,1';
         const [result] = await connect.execute(sql, [id]);
         if (!result) {
             return false;

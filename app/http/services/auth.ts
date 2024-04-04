@@ -1,7 +1,7 @@
 import { connection } from '@shared/database';
 import { RowDataPacket } from 'mysql2';
 
-export const auth = async (username: string, password: string) => {
+export const auth = async (username: string) => {
     const connect = await connection();
 
     try {

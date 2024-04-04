@@ -5,4 +5,5 @@ export { DetailController as AdminDetailUserController } from './admin/user/deta
 export { ActionCreateController as AdminActionCreateUserController } from './admin/user/action-create.controller';
 export { ListController as AdminListUserController } from './admin/user/list.controller';
 export { AjaxGetUserListController as AdminAjaxGetUserListController } from './admin/user/ajax-get-user-list.controller';
+export { EditController as AdminEditUserController } from './admin/user/edit.controller';
 export { TestController } from './admin/user/test.controller';

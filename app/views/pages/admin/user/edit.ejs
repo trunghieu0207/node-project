@@ -1,0 +1,237 @@
+<%- include('../../../partials/head'); %>
+</head>
+<body>
+<!-- Layout wrapper -->
+<div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+        <!-- Menu -->
+
+        <%- include('../../../components/menu'); %>
+        <!-- / Menu -->
+
+        <!-- Layout container -->
+        <div class="layout-page">
+            <!-- Navbar -->
+
+            <%- include('../../../components/nav'); %>
+
+            <!-- / Navbar -->
+
+            <!-- Content wrapper -->
+            <div class="content-wrapper">
+                <!-- Content -->
+
+                <div class="container-xxl flex-grow-1 container-p-y">
+                    <h4 class="py-3 mb-4"><span class="text-muted fw-light">Người dùng /</span> Chỉnh sửa người dùng</h4>
+                    <div class="row">
+                        <!-- FormValidation -->
+                        <div class="col-12">
+                            <% if (haveFlash('updateError')[0]) {%>
+                                <div class="alert alert-danger"> <%=  getFlashMessages('updateError')[0] %></div>
+                            <% }%>
+                            <div class="card">
+                                <h5 class="card-header">Tạo tài khoản</h5>
+                                <div class="card-body">
+                                    <form id="formValidationExamples" class="row g-3" method="post" action="/admin/user/action-edit">
+                                        <!-- Account Details -->
+
+                                        <div class="col-12">
+                                            <h6>1. Thông tin tài khoản</h6>
+                                            <hr class="mt-0" />
+                                        </div>
+                                        <input type="text" hidden name="id" value="<%= user.id %>">
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="formValidationUsername">Username <span style="color: red">*</span></label>
+                                            <input
+                                                    class="form-control"
+                                                    type="email"
+                                                    id="formValidationUsername"
+                                                    disabled
+                                                    value="<%= user.username%>" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="formValidationEmail">Email <span style="color: red">*</span></label>
+                                            <input
+                                                    class="form-control"
+                                                    type="email"
+                                                    id="formValidationEmail"
+                                                    name="email"
+                                                    value="<%= user.email%>"
+                                                    placeholder="john.doe" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-password-toggle">
+                                                <label class="form-label" for="formValidationPass">Mật khẩu <span style="color: red">*</span></label>
+                                                <div class="input-group input-group-merge">
+                                                    <input
+                                                            class="form-control"
+                                                            type="password"
+                                                            id="formValidationPass"
+                                                            name="password"
+                                                            placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                                            aria-describedby="multicol-password2" />
+                                                    <span class="input-group-text cursor-pointer" id="multicol-password2"
+                                                    ><i class="ti ti-eye-off"></i
+                                                        ></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-password-toggle">
+                                                <label class="form-label" for="formValidationConfirmPass">Nhập lại mật khẩu <span style="color: red">*</span></label>
+                                                <div class="input-group input-group-merge">
+                                                    <input
+                                                            class="form-control"
+                                                            type="password"
+                                                            id="formValidationConfirmPass"
+                                                            name="confirmPassword"
+                                                            placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                                            aria-describedby="multicol-confirm-password2" />
+                                                    <span class="input-group-text cursor-pointer" id="multicol-confirm-password2"
+                                                    ><i class="ti ti-eye-off"></i
+                                                        ></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="formValidationRole">Cấp bậc</label>
+                                            <select name="role" class="select2 form-select form-select-lg" data-allow-clear="true">
+                                                <option value="5" <%= user.role == 5 ? 'selected' : '' %> >Người dùng</option>
+                                                <option value="2" <%= user.role == 2 ? 'selected' : '' %>>Doanh nghiệp</option>
+                                                <option value="1" <%= user.role == 1 ? 'selected' : '' %>>Quản trị</option>
+                                            </select>
+                                        </div>
+
+                                        <!-- Personal Info -->
+
+                                        <div class="col-12">
+                                            <h6 class="mt-2">2. Thông tin cá nhân</h6>
+                                            <hr class="mt-0" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="formValidationName">Họ <span style="color: red">*</span></label>
+                                            <input
+                                                    type="text"
+                                                    id="formValidationName"
+                                                    class="form-control"
+                                                    value="<%= user.lastname %>"
+                                                    name="lastName" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="formValidationName">Tên <span style="color: red">*</span></label>
+                                            <input
+                                                    type="text"
+                                                    id="formValidationName"
+                                                    class="form-control"
+                                                    value="<%= user.firstname%>"
+                                                    name="firstName" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="formValidationPhone">Số điện thoại <span style="color: red">*</span></label>
+                                            <input
+                                                    class="form-control typeahead"
+                                                    type="text"
+                                                    value="<%= user.phone%>"
+                                                    id="formValidationPhone"
+                                                    name="formValidationPhone"
+                                                    autocomplete="off" />
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <label class="form-label" for="formValidationAddress">Địa chỉ <span style="color: red">*</span></label>
+                                            <input
+                                                    class="form-control typeahead"
+                                                    type="text"
+                                                    id="formValidationAddress"
+                                                    name="formValidationAddress"
+                                                    value="<%= user.address%>"
+                                                    autocomplete="off"
+                                                    placeholder="Số nhà, ấp, thôn xóm"/>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Giới tính</label>
+                                            <div class="form-check custom mb-2">
+                                                <input
+                                                        type="radio"
+                                                        id="formValidationGender"
+                                                        name="formValidationGender"
+                                                        value="male"
+                                                        class="form-check-input"
+                                                        checked />
+                                                <label class="form-check-label" for="formValidationGender">Nam</label>
+                                            </div>
+
+                                            <div class="form-check custom">
+                                                <input
+                                                        type="radio"
+                                                        id="formValidationGender2"
+                                                        name="formValidationGender"
+                                                        value="female"
+                                                        class="form-check-input" />
+                                                <label class="form-check-label" for="formValidationGender2">Nữ</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="formValidationDob">Ngày tháng năm sinh <span style="color: red">*</span></label>
+                                            <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    name="formValidationDob"
+                                                    id="formValidationDob"
+                                                    value="<%= user.dateOfBirth2 %>"
+                                                    placeholder="dd/mm/yyyy"
+                                                    required />
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="formValidationBio">Mô tả</label>
+                                            <textarea
+                                                    class="form-control"
+                                                    id="formValidationBio"
+                                                    name="formValidationBio"
+                                                    rows="3"></textarea>
+                                        </div>
+
+                                        <!-- Choose Your Plan -->
+
+                                        <!--                                        <div class="col-12">-->
+                                        <!--                                            <label class="switch switch-primary">-->
+                                        <!--                                                <input type="checkbox" class="switch-input" name="formValidationSwitch" />-->
+                                        <!--                                                <span class="switch-toggle-slider">-->
+                                        <!--                                                  <span class="switch-on"></span>-->
+                                        <!--                                                  <span class="switch-off"></span>-->
+                                        <!--                                                </span>-->
+                                        <!--                                                <span class="switch-label">Gửi mail thông tin đăng nhập</span>-->
+                                        <!--                                            </label>-->
+                                        <!--                                        </div>-->
+                                        <div class="col-12">
+                                            <button type="submit" name="submitButton" class="btn btn-primary">Cập nhật</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /FormValidation -->
+                    </div>
+                </div>
+                <!-- / Content -->
+
+                <!-- Footer -->
+                <%- include('../../../partials/footer'); %>
+                <!-- / Footer -->
+
+                <div class="content-backdrop fade"></div>
+            </div>
+            <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+    </div>
+</div>
+<!-- / Layout wrapper -->
+
+<!-- Core JS -->
+<!-- build:js assets/vendor/js/core.js -->
+
+<%- include('../../../partials/script'); %>
+</body>
+</html>
