@@ -8,7 +8,8 @@
     "lint": "eslint . --ext .tsx,.ts",
     "lint:fix": "eslint . --ext .tsx,.ts,.js --fix",
     "build": "webpack --config ./webpack/prod.config.js",
-    "start": "nodemon -L"
+    "start:dev": "ENV_RUNNING=dev nodemon -L",
+    "start:prod": "ENV_RUNNING=prod nodemon -L"
   },
   "author": "Hieu-Dang",
   "license": "ISC",
@@ -21,6 +22,7 @@
     "ejs": "^3.1.8",
     "express": "^4.18.2",
     "express-flash-message": "^3.0.2",
+    "formBuilder": "^3.19.7",
     "luxon": "^3.4.4",
     "mysql2": "^3.9.1",
     "redis": "^4.6.13",

@@ -26,12 +26,12 @@
                 <!-- Content -->
 
                 <div class="container-xxl flex-grow-1 container-p-y">
-                    <h4 class="py-3 mb-4"><span class="text-muted fw-light">Người dùng /</span> Chỉnh sửa người dùng</h4>
+                    <h4 class="py-3 mb-4"><span class="text-muted fw-light">User /</span> User detail</h4>
                     <div class="card mb-4">
                         <form class="card-body">
                             <div style="margin-bottom: 15px">
                                 <a href="/admin/user/edit/1">
-                                    <button type="button" class="btn btn-primary me-sm-3 me-1 waves-effect waves-light">Sửa</button>
+                                    <button type="button" class="btn btn-primary me-sm-3 me-1 waves-effect waves-light">Edit</button>
                                 </a>
                                 <a href="javascript:void(0)">
                                     <button
@@ -43,31 +43,31 @@
                                     </button>
                                 </a>
                             </div>
-                            <h4>1. Thông tin tài khoản</h4>
+                            <h4>1. Account information</h4>
                             <div class="row g-3">
                                 <div class="col-sm-4">
-                                    <span class="fw-medium me-1">Tên người dùng: </span>
-                                    <span>nguyenvana</span>
+                                    <span class="fw-medium me-1">Username: </span>
+                                    <span><%= user.username %></span>
                                 </div>
                                 <div class="col-sm-4">
-                                    <span class="fw-medium me-1">Cấp bậc: </span>
+                                    <span class="fw-medium me-1">Role: </span>
                                     <span>Admin</span>
                                 </div>
                                 <div class="col-sm-4">
-                                    <span class="fw-medium me-1">Trạng thái: </span>
-                                    <span class="badge bg-label-success me-1">Kích hoạt</span>
+                                    <span class="fw-medium me-1">Status: </span>
+                                    <span class="badge bg-label-success me-1">Active</span>
                                 </div>
                             </div>
                             <hr class="my-4 mx-n4">
-                            <h4>2. Thông tin người dùng</h4>
+                            <h4>2. Personal information</h4>
                             <div class="row g-3">
                                 <div class="col-sm-4">
-                                    <span class="fw-medium me-1">Họ đệm: </span>
-                                    <span>Nguyen</span>
+                                    <span class="fw-medium me-1">Firstname: </span>
+                                    <span><%= user.firstname %></span>
                                 </div>
                                 <div class="col-sm-4">
-                                    <span class="fw-medium me-1">Tên: </span>
-                                    <span>Van a</span>
+                                    <span class="fw-medium me-1">Lastname: </span>
+                                    <span><%= user.lastname %></span>
                                 </div>
                                 <div class="col-sm-4">
                                     <span class="fw-medium me-1">Giới tính: </span>
@@ -79,11 +79,11 @@
                                 </div>
                                 <div class="col-sm-4">
                                     <span class="fw-medium me-1">Email: </span>
-                                    <span>nguyenvana@mail.com</span>
+                                    <span><%= user.email %></span>
                                 </div>
                                 <div class="col-sm-4">
                                     <span class="fw-medium me-1">Số điện thoại: </span>
-                                    <span>0123456789</span>
+                                    <span><%= user.phone %></span>
                                 </div>
                                 <div class="col-sm-12">
                                     <span class="fw-medium me-1">Địa chỉ: </span>

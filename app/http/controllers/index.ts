@@ -7,3 +7,7 @@ export { ListController as AdminListUserController } from './admin/user/list.con
 export { AjaxGetUserListController as AdminAjaxGetUserListController } from './admin/user/ajax-get-user-list.controller';
 export { EditController as AdminEditUserController } from './admin/user/edit.controller';
 export { TestController } from './admin/user/test.controller';
+
+// Form
+
+export { CreateController as AdminCreateFormController } from './admin/form/create.controller';

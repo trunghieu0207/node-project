@@ -1,0 +1,89 @@
+<%- include('../../../partials/head'); %>
+<link rel="stylesheet" href="/static/assets/vendor/libs/flatpickr/flatpickr.css" />
+<link rel="stylesheet" href="/static/assets/vendor/libs/select2/select2.css" />
+
+</head>
+
+<body>
+<!-- Content -->
+<div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+        <!-- Menu -->
+
+        <%- include('../../../components/menu'); %>
+        <!-- / Menu -->
+
+        <!-- Layout container -->
+        <div class="layout-page">
+            <!-- Navbar -->
+
+            <%- include('../../../components/nav'); %>
+
+            <!-- / Navbar -->
+
+            <!-- Content wrapper -->
+            <div class="content-wrapper">
+                <!-- Content -->
+
+                <div class="container-xxl flex-grow-1 container-p-y">
+                    <h4 class="py-3 mb-4"><span class="text-muted fw-light">Người dùng /</span> Tạo người dùng</h4>
+                    <div class="row">
+                        <!-- FormValidation -->
+                        <div class="col-12">
+                            <form action="" name="createForm">
+                                <div class="card">
+                                    <h5 class="card-header">Create form</h5>
+                                    <textarea hidden="" name="data" id="" cols="30" rows="10"></textarea>
+                                    <div class="card-body">
+                                        <div id="fb-editor"></div>
+                                        <div class="mt-2">
+                                            <button type="button" class="btn btn-primary me-2 btn-save">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /FormValidation -->
+                    </div>
+                </div>
+                <!-- / Content -->
+
+                <!-- Footer -->
+                <%- include('../../../partials/footer'); %>
+                <!-- / Footer -->
+
+                <div class="content-backdrop fade"></div>
+            </div>
+            <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+    </div>
+</div>
+<%- include('../../../partials/script'); %>
+<script src="/static/assets/vendor/libs/cleavejs/cleave.js"></script>
+<script src="/static/assets/vendor/libs/cleavejs/cleave-phone.js"></script>
+<script src="/static/assets/vendor/libs/select2/select2.js"></script>
+<script src="/static/assets/js/form-layouts.js"></script>
+<script src="/static/assets/js/admin/user/createUser.js"></script>
+<script src="/static/assets/js/admin/user/createUserValidation.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+<script src="https://formbuilder.online/assets/js/form-builder.min.js"></script>
+<script>
+    jQuery(function($) {
+        var options = {
+            disabledActionButtons: ['data', 'save', 'clear'],
+        }
+        var fbEditor = $(document.getElementById('fb-editor'))
+        var formBuilder = fbEditor.formBuilder(options);
+        var $form = $('form[name="createForm"]');
+
+        $('.btn-save').on('click', function () {
+            var result = formBuilder.actions.getData('json')
+            $form.find('textarea[name="data"]').val(result);
+            // $form.submit();
+        })
+    });
+</script>
+</body>
+</html>

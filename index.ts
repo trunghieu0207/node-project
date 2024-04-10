@@ -7,6 +7,33 @@ import { assets } from '@shared/assets';
 import { Admin, Index } from '@http/routes';
 import { expressFlashMessage } from './app/shared/session';
 import { v4 as uuid_v4 } from 'uuid';
+import RedisStore from 'connect-redis';
+import { createClient } from 'redis';
+
+const sessionConfig: session.SessionOptions = {
+    genid: function () {
+        return uuid_v4();
+    },
+    secret: 'secret-key',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
+        // secure: true, // becareful set this option, check here: https://www.npmjs.com/package/express-session#cookiesecure. In local, if you set this to true, you won't receive flash as you are using `http` in local, but http is not secure
+    }
+};
+
+if (process.env.ENV_RUNNING === 'dev') {
+    const redisClient = createClient();
+    redisClient.connect().catch(console.error);
+
+    // Initialize store.
+    const redisStore = new RedisStore({
+        client: redisClient,
+        prefix: 'myapp:'
+    });
+    sessionConfig.store = redisStore;
+}
 
 dotenv.config();
 
@@ -16,21 +43,7 @@ const port = process.env.PORT;
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'app/views'));
 
-app.use(
-    session({
-        genid: function () {
-            return uuid_v4();
-        },
-        secret: 'secret-key',
-        resave: false,
-        saveUninitialized: true,
-        cookie: {
-            maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
-            // secure: true, // becareful set this option, check here: https://www.npmjs.com/package/express-session#cookiesecure. In local, if you set this to true, you won't receive flash as you are using `http` in local, but http is not secure
-        }
-    })
-);
-
+app.use(session(sessionConfig));
 app.use(
     expressFlashMessage({
         sessionKeyName: 'express-flash-message'
