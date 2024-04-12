@@ -11,3 +11,6 @@ export { TestController } from './admin/user/test.controller';
 // Form
 
 export { CreateController as AdminCreateFormController } from './admin/form/create.controller';
+export { ActionSaveController as AdminActionCreateFormController } from './admin/form/action-save.controller';
+export { ListController as AdminListFormController } from './admin/form/list.controller';
+export { AjaxGetAllFormController as AdminAjaxFetchAllFormController } from './admin/form/ajax-get-all-form.controller';

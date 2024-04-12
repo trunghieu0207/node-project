@@ -2,12 +2,15 @@
 // @ts-ignore
 import express, { NextFunction } from 'express';
 import {
+    AdminActionCreateFormController,
     AdminActionCreateUserController,
+    AdminAjaxFetchAllFormController,
     AdminAjaxGetUserListController,
     AdminCreateFormController,
     AdminCreateUserController,
     AdminDetailUserController,
     AdminEditUserController,
+    AdminListFormController,
     AdminListUserController,
     TestController
 } from '@http/controllers';
@@ -76,5 +79,29 @@ Admin.get(
     isUserLogin,
     (req: express.Request, res: express.Response, next: NextFunction) => {
         new AdminCreateFormController(req, res, next).render();
+    }
+);
+
+Admin.post(
+    '/form/action-create',
+    isUserLogin,
+    async (req: express.Request, res: express.Response, next: NextFunction) => {
+        await new AdminActionCreateFormController(req, res, next).store();
+    }
+);
+
+Admin.get(
+    '/form/list',
+    isUserLogin,
+    (req: express.Request, res: express.Response, next: NextFunction) => {
+        new AdminListFormController(req, res, next).render();
+    }
+);
+
+Admin.get(
+    '/form/ajax-fetch-all-forms',
+    isUserLogin,
+    (req: express.Request, res: express.Response, next: NextFunction) => {
+        new AdminAjaxFetchAllFormController(req, res, next).fetch();
     }
 );
