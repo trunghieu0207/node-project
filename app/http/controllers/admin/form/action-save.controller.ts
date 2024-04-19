@@ -7,12 +7,12 @@ export class ActionSaveController extends BaseController {
         const body = this.request.body;
         const data = body.data;
         const title = body.title;
-        const form = new FormEntity(1, data, title, 57);
+        const form = new FormEntity(1, title, data, 57);
         try {
             await createForm(form);
-            console.log(222);
+            this.response.redirect('/admin/form/list');
         } catch (e) {
-            console.log(e);
+            this.response.redirect('/admin/form/list');
         }
     }
 }

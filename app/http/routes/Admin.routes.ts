@@ -8,6 +8,7 @@ import {
     AdminAjaxGetUserListController,
     AdminCreateFormController,
     AdminCreateUserController,
+    AdminDetailFormController,
     AdminDetailUserController,
     AdminEditUserController,
     AdminListFormController,
@@ -103,5 +104,13 @@ Admin.get(
     isUserLogin,
     (req: express.Request, res: express.Response, next: NextFunction) => {
         new AdminAjaxFetchAllFormController(req, res, next).fetch();
+    }
+);
+
+Admin.get(
+    '/form/detail/:formId',
+    isUserLogin,
+    async (req: express.Request, res: express.Response, next: NextFunction) => {
+        await new AdminDetailFormController(req, res, next).render();
     }
 );

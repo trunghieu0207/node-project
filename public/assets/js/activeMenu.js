@@ -8,6 +8,10 @@ switch (application) {
         $menu.find('.user-menu').addClass('active');
         break;
     }
+    case 'form': {
+        $menu.find('.form-menu').addClass('active');
+        break;
+    }
 
     case 'business': {
         $menu.find('.business-menu').addClass('active');

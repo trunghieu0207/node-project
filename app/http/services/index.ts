@@ -3,4 +3,4 @@ export { createUserProfile as adminCreateUserProfile } from './admin/user.servic
 export { fetchAllUser } from './admin/user.service';
 export { getUserById } from './admin/user.service';
 export { auth } from './auth';
-export { createForm, fetchAllForm } from './admin/form.service';
+export { createForm, fetchAllForm, getFormById } from './admin/form.service';

@@ -1,0 +1,96 @@
+<%- include('../../../partials/head'); %>
+<link rel="stylesheet" href="/static/assets/vendor/libs/flatpickr/flatpickr.css" />
+<link rel="stylesheet" href="/static/assets/vendor/libs/select2/select2.css" />
+
+</head>
+
+<body>
+<!-- Layout wrapper -->
+<div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+        <!-- Menu -->
+
+        <%- include('../../../components/menu'); %>
+        <!-- / Menu -->
+
+        <!-- Layout container -->
+        <div class="layout-page">
+            <!-- Navbar -->
+
+            <%- include('../../../components/nav'); %>
+
+            <!-- / Navbar -->
+
+            <!-- Content wrapper -->
+            <div class="content-wrapper">
+                <!-- Content -->
+
+                <div class="container-xxl flex-grow-1 container-p-y">
+                    <h4 class="py-3 mb-4"><span class="text-muted fw-light">User /</span> User detail</h4>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div style="margin-bottom: 15px">
+                                <a href="/admin/user/edit/1">
+                                    <button type="button" class="btn btn-primary me-sm-3 me-1 waves-effect waves-light">Edit</button>
+                                </a>
+                            </div>
+                            <h4>1. Form information</h4>
+                            <div class="row g-3">
+                                <div id="render-wrap"></div>
+                            </div>
+                            <hr class="my-4 mx-n4">
+                            <h4>2. Step information</h4>
+                            <div class="row g-3 js-step">
+                                <div class="js-step-1" style="display: flex; align-items: center">
+                                    <div class="col-md-1 text-center">Step 1</div>
+                                    <div class="col-md-6" style="margin-right: 15px">
+                                        <input
+                                                class="form-control"
+                                                type="email"
+                                                id="formValidationUsername"
+                                                name="username"
+                                                placeholder="Step name" />
+                                    </div>
+                                    <div class="col-md-5">
+                                        <button type="button" class="btn js-add-step btn-primary me-sm-3 me-1 waves-effect waves-light">Add +</button>
+                                        <button type="button" class="btn js-remove-step btn-warning me-sm-3 me-1 waves-effect waves-light">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+                <!-- / Content -->
+
+                <!-- Footer -->
+                <%- include('../../../partials/footer'); %>
+                <!-- / Footer -->
+
+                <div class="content-backdrop fade"></div>
+            </div>
+            <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+    </div>
+</div>
+<!-- / Layout wrapper -->
+<%- include('../../../partials/script'); %>
+<script src="https://formbuilder.online/assets/js/form-builder.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+<script src="https://formbuilder.online/assets/js/form-builder.min.js"></script>
+<script src="https://formbuilder.online/assets/js/form-render.min.js"></script>
+<script src="/static/assets/js/admin/form/handle_step.js"></script>
+
+    <script>
+    jQuery($ => {
+        const code = document.getElementById("render-wrap");
+        var form = <%- JSON.stringify(data) %>
+        var $markup = $("<div/>");
+
+        $markup.formRender({ formData: form.content });
+
+        code.innerHTML = $markup.formRender("html");
+    });
+</script>
+</body>
+</html>
