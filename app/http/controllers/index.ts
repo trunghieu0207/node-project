@@ -15,3 +15,7 @@ export { ActionSaveController as AdminActionCreateFormController } from './admin
 export { ListController as AdminListFormController } from './admin/form/list.controller';
 export { AjaxGetAllFormController as AdminAjaxFetchAllFormController } from './admin/form/ajax-get-all-form.controller';
 export { GetFormDetailController as AdminDetailFormController } from './admin/form/get-form-detail.controller';
+
+// user
+export { FormListController as UserFormListController } from './user/form-list.controller';
+export { CreateRequestController as UserCreateRequestController } from './user/create-request.controller';
