@@ -20,6 +20,6 @@ export class LoginController extends BaseController {
 
         (this.request.session as any).user = user;
 
-        return this.response.redirect('/admin/user/list');
+        return this.response.redirect('/form-list');
     }
 }
