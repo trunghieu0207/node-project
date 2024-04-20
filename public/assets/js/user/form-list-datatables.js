@@ -84,7 +84,7 @@ $(function () {
                             '<div class="d-inline-block">' +
                             '<a href="javascript:;" class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="text-primary ti ti-dots-vertical"></i></a>' +
                             '<ul class="dropdown-menu dropdown-menu-end m-0">' +
-                            '<li><a href="/form/create/' +
+                            '<li><a href="/create-request/' +
                             full['id'] +
                             '" class="dropdown-item">Create request</a></li>' +
                             '</ul>' +
